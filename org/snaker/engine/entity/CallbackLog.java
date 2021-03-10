@@ -131,6 +131,9 @@ public class CallbackLog implements Serializable {
 		sb.append(",variable=").append(this.variable);
 		sb.append(",createTime").append(this.createTime);
 		sb.append(",result=").append(this.result).append(")");
+		sb.append(",process_name=").append(this.processName).append(")");
+		sb.append(",count=").append(this.count).append(")");
+		sb.append(",status=").append(this.status).append(")");
 		return sb.toString();
 	}
 
@@ -147,6 +150,13 @@ public class CallbackLog implements Serializable {
 		this.applyName = applyName;
 		this.status = status;
 		this.count = count;
+	}
+	public CallbackLog(String id,String orderId, String variable, String result, String createTime) {
+		this.id = id;
+		this.orderId = orderId;
+		this.variable = variable;
+		this.result = result;
+		this.createTime = createTime;
 	}
 
 	public String getProcessName() {

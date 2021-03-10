@@ -74,7 +74,11 @@ public class SnakerEngineImpl implements SnakerEngine {
 	 * 审核组业务类
 	 */
 	protected IGroupService groupService;
-	
+	/**
+	 * 回调日志
+	 */
+	protected ICallBackLogService callBsckService;
+
 	/**
 	 * 根据serviceContext上下文，查找processService、orderService、taskService服务
 	 */
@@ -85,7 +89,8 @@ public class SnakerEngineImpl implements SnakerEngine {
 		orderService = ServiceContext.find(IOrderService.class);
 		taskService = ServiceContext.find(ITaskService.class);
 		managerService = ServiceContext.find(IManagerService.class);
-		
+		callBsckService = ServiceContext.find(ICallBackLogService.class);
+
 		/*
 		 * 无spring环境，DBAccess的实现类通过服务上下文获取
 		 */
@@ -169,7 +174,13 @@ public class SnakerEngineImpl implements SnakerEngine {
 		AssertHelper.notNull(groupService);
 		return groupService;
 	}
-	
+
+	@Override
+	public ICallBackLogService callBackLog() {
+		AssertHelper.notNull(callBsckService);
+		return callBsckService;
+	}
+
 	/**
 	 * 获取管理服务
 	 * @since 1.4

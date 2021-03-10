@@ -76,6 +76,12 @@ public interface SnakerEngine {
 	public IGroupService group();
 	
 	/**
+	 * 获取毁掉日子好服务
+	 * @return ICallBackLogService 任务服务
+	 */
+	public ICallBackLogService callBackLog();
+
+	/**
 	 * 根据流程定义ID启动流程实例
 	 * @param id 流程定义ID
 	 * @return Order 流程实例
