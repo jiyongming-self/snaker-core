@@ -52,6 +52,26 @@ public class CallbackLog implements Serializable {
      */
     private String createTime;
 
+	/**
+	 * 流程定义名称
+	 */
+	private String processName;
+
+	/**
+	 * 申请人姓名
+	 */
+    private String applyName;
+
+	/**
+	 * 处理次数
+	 */
+	private Integer count;
+
+	/**
+	 * 状态：0:未处理；1：处理成功
+	 */
+	private Integer status;
+
 
     /**
      * 流程实例变量map集合
@@ -116,11 +136,48 @@ public class CallbackLog implements Serializable {
 
 	public CallbackLog(){}
 
-	public CallbackLog(String id,String orderId, String variable, String result, String createTime) {
+	public CallbackLog(String id,String orderId, String variable, String result, String createTime,
+					   String processName, String applyName, Integer count, Integer status) {
 		this.id = id;
 		this.orderId = orderId;
 		this.variable = variable;
 		this.result = result;
 		this.createTime = createTime;
+		this.processName = processName;
+		this.applyName = applyName;
+		this.status = status;
+		this.count = count;
+	}
+
+	public String getProcessName() {
+		return processName;
+	}
+
+	public void setProcessName(String processName) {
+		this.processName = processName;
+	}
+
+	public String getApplyName() {
+		return applyName;
+	}
+
+	public void setApplyName(String applyName) {
+		this.applyName = applyName;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 }
